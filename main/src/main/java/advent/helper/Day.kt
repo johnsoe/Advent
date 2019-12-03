@@ -9,4 +9,6 @@ abstract class Day {
     abstract fun getFileName(): String
 
     fun getInputByLine(): List<String> = File("$INPUT_BASE${getFileName()}").readLines()
+
+
 }
