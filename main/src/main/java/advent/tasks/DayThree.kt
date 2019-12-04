@@ -69,20 +69,4 @@ class DayThree : Day() {
         }
         return sum
     }
-//    private fun processDirection(instruction: String): GridDirection {
-//        return when (instruction[0]) {
-//            'U' -> GridDirection.Up
-//            'D' -> GridDirection.Down
-//            'L' -> GridDirection.Left
-//            'R' -> GridDirection.Right
-//            else -> throw IllegalStateException("Invalid instruction: $instruction")
-//        }
-//    }
-//
-//    sealed class GridDirection {
-//        object Up: GridDirection()
-//        object Down: GridDirection()
-//        object Left: GridDirection()
-//        object Right: GridDirection()
-//    }
 }

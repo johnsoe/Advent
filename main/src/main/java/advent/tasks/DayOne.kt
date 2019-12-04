@@ -7,20 +7,21 @@ class DayOne : Day() {
     override fun getFileName() = "one_a.txt"
 
     fun calcNeededFuel(): Long {
-        return getInputByLine().map {
-            it.toLong() / 3L - 2L
-        }.sum()
+        return getInputByLine().map { calcFuel(it.toLong()) }.sum()
     }
 
+    fun calcFuel(mass: Long): Long = mass / 3 - 2
+
     fun calcIterFuel(): Long {
-        return getInputByLine().map {
-            var sum = 0L
-            var temp = it.toLong() / 3L - 2L
-            while (temp > 0) {
-                sum += temp
-                temp = temp / 3L - 2L
-            }
-            sum
-        }.sum()
+        return getInputByLine().map { calcIterFuel(it.toLong()) }.sum()
+    }
+
+    private fun calcIterFuel(mass: Long) : Long {
+        val fuel = calcFuel(mass)
+        return if (fuel <= 0) {
+            0
+        } else {
+            fuel + calcIterFuel(fuel)
+        }
     }
 }
