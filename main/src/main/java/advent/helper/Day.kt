@@ -10,5 +10,6 @@ abstract class Day {
 
     fun getInputByLine(): List<String> = File("$INPUT_BASE${getFileName()}").readLines()
 
+    fun getInputBySeparator(): List<String> = getInputByLine().flatMap { it.split(",") }
 
 }
