@@ -17,5 +17,8 @@ fun main(args: Array<String>) {
 //    println(DayFour().findValidPassword(168630..718098))
 //    println(DayFour().findStrictPassword(168630..718098))
 
-    DayFive().parseInstructions()
+//    DayFive().parseInstructions()
+
+    println(DaySix().calcTotalOrbits())
+    println(DaySix().calcPlanetaryJumps())
 }
