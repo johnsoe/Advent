@@ -6,7 +6,7 @@ class DaySix: Day() {
     override fun getFileName() = "six.txt"
 
     companion object {
-        private const val centerPlanet = "COM"
+        private const val CENTER_PLANET = "COM"
         private const val YOU = "YOU"
         private const val SANTA = "SAN"
     }
@@ -56,7 +56,7 @@ class DaySix: Day() {
             if (allPlanets[first] == null) allPlanets[first] = Planet(first)
             allPlanets[first]!!.orbiters.add(allPlanets[orbiter]!!)
         }
-        return allPlanets[centerPlanet] ?: throw IllegalStateException("Failed to have center planet")
+        return allPlanets[CENTER_PLANET] ?: throw IllegalStateException("Failed to have center planet")
     }
 
     private fun generatePath(root: Planet, search: String, path: MutableList<String>): Boolean {
