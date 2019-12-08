@@ -1,21 +1,27 @@
 package advent.helper
 
 class IntCodeComputer constructor(
-    val instructions: MutableList<Int>,
-    private val init: Int
+    val instructions: MutableList<Int>
 ) {
 
-    fun parseAllInstructions(): List<Int> {
+    var lastOpcode: Opcode? = null
+
+    private var inputIndex = 0
+    private var index = 0
+
+    fun parseAllInstructions(inputs: List<Int>, pauseOnOutput: Boolean = false): List<Int> {
         val output = mutableListOf<Int>()
-        var index = 0
+        inputIndex = 0
         do {
-            val op = parseNextInstruction(index, output)
+            val op = parseNextInstruction(index, output, inputs)
             index = op.second
-        } while (op.first != Opcode.Terminate)
+            lastOpcode = op.first
+        } while (op.first != Opcode.Terminate && (!pauseOnOutput || op.first != Opcode.Write))
+        println(output)
         return output
     }
 
-    private fun parseNextInstruction(index: Int, output: MutableList<Int>): Pair<Opcode, Int> {
+    private fun parseNextInstruction(index: Int, output: MutableList<Int>, inputs: List<Int>): Pair<Opcode, Int> {
         val instruction = instructions[index]
         val opcode = getOpCode(instruction)
         val params = getOpParams(instruction, opcode)
@@ -35,7 +41,10 @@ class IntCodeComputer constructor(
                 val result = nextLookUp(1) * nextLookUp(2)
                 update(3, result)
             }
-            Opcode.Read -> update(1, init)
+            Opcode.Read -> {
+                update(1, inputs[inputIndex])
+                inputIndex++
+            }
             Opcode.Write -> output.add(nextLookUp(1))
             Opcode.JumpIfTrue -> {
                 if (nextLookUp(1) != 0) {

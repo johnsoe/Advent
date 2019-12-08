@@ -8,8 +8,8 @@ class DayFive : Day() {
     override fun getFileName() = "five.txt"
 
     fun parseInstructions() {
-        val comp = IntCodeComputer(getInputBySeparator().map { it.toInt() }.toMutableList(), 5)
-        println(comp.parseAllInstructions())
+        val comp = IntCodeComputer(getInputBySeparator().map { it.toInt() }.toMutableList())
+        println(comp.parseAllInstructions(listOf(5)))
         println(comp.instructions)
     }
 }

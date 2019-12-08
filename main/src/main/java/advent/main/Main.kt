@@ -19,6 +19,10 @@ fun main(args: Array<String>) {
 
 //    DayFive().parseInstructions()
 
-    println(DaySix().calcTotalOrbits())
-    println(DaySix().calcPlanetaryJumps())
+//    println(DaySix().calcTotalOrbits())
+//    println(DaySix().calcPlanetaryJumps())
+
+//    println(DaySeven().findMaxFeedbackThrust())
+
+    println(DayEight().notSureAboutFuncNameHere(25, 6))
 }
