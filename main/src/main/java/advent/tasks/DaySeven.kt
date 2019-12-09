@@ -5,7 +5,7 @@ import advent.helper.LongCodeComputer
 
 class DaySeven: Day() {
 
-    override fun getFileName() = "seven_test.txt"
+    override fun getFileName() = "seven.txt"
 
     fun findMaxThrust(): Long {
         val instructions = getInputBySeparator().map { it.toLong() }.toMutableList()
@@ -14,8 +14,7 @@ class DaySeven: Day() {
 
     fun findMaxFeedbackThrust(): Long {
         val instructions = getInputBySeparator().map { it.toLong() }.toMutableList()
-        return calcThrustWithFeedback(instructions, mutableListOf(9,8,7,6,5))
-        //return phaseOrderHelper(mutableListOf(), Integer.MIN_VALUE, instructions, 5..9, ::calcThrustWithFeedback)
+        return phaseOrderHelper(mutableListOf(), Long.MIN_VALUE, instructions, 5..9, ::calcThrustWithFeedback)
     }
 
     private fun phaseOrderHelper(

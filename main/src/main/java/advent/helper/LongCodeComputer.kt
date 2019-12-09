@@ -9,6 +9,7 @@ class LongCodeComputer constructor(
     private var relativeIndex: Long = 0
     private var inputIndex = 0
     private var dataMap = mutableMapOf<Long, Long>()
+    private var fullIndex = 0L
 
     init {
         instructions.forEachIndexed { index, i ->
@@ -19,12 +20,12 @@ class LongCodeComputer constructor(
     fun parseAllInstructions(inputs: List<Long>, pauseOnOutput: Boolean = false): List<Long> {
         val output = mutableListOf<Long>()
         inputIndex = 0
-        var index = 0L
         do {
-            val op = parseNextInstruction(index, output, inputs)
-            index = op.second
+            val op = parseNextInstruction(fullIndex, output, inputs)
+            fullIndex = op.second
             lastOpcode = op.first
         } while (op.first != Opcode.Terminate && (!pauseOnOutput || op.first != Opcode.Write))
+        println(output)
         return output
     }
 
