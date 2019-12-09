@@ -24,5 +24,7 @@ fun main(args: Array<String>) {
 
 //    println(DaySeven().findMaxFeedbackThrust())
 
-    println(DayEight().notSureAboutFuncNameHere(25, 6))
+//    println(DayEight().notSureAboutFuncNameHere(25, 6))
+
+    println(DayNine().checkComputer())
 }
