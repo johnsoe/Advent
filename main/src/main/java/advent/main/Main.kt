@@ -26,5 +26,7 @@ fun main(args: Array<String>) {
 
 //    println(DayEight().notSureAboutFuncNameHere(25, 6))
 
-    println(DayNine().checkComputer())
+//    println(DayNine().checkComputer())
+
+    println(DayTwelve().calcTotalEnergy())
 }
