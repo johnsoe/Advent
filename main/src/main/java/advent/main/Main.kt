@@ -28,5 +28,8 @@ fun main(args: Array<String>) {
 
 //    println(DayNine().checkComputer())
 
-    println(DayTwelve().calcTotalEnergy())
+//    println(DayTwelve().calcTotalEnergy(1000))
+//    println(DayTwelve().calcCycle())
+
+    println(DayThirteen().countBlockTiles())
 }
