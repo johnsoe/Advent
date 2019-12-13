@@ -14,8 +14,10 @@ class DayThirteen: Day() {
 
         val state = mutableMapOf<Point, Tile>()
         for (i in 0..outputs.size step 3) {
-            val point = Point(outputs[i], outputs[i+1])
-            state[point] = getTile(outputs[i+2])
+            if (i + 2 < outputs.size) {
+                val point = Point(outputs[i], outputs[i+1])
+                state[point] = getTile(outputs[i+2])
+            }
         }
         return state.count {
             it.value == Tile.Block
