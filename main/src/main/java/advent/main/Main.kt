@@ -32,7 +32,7 @@ fun main(args: Array<String>) {
 //    println(DayTen().partTwo())
 
 //    println(DayTwelve().calcTotalEnergy(1000))
-//    println(DayTwelve().calcCycle())
+    println(DayTwelve().calcCycle())
 
-    println(DayThirteen().countBlockTiles())
+//    println(DayThirteen().countBlockTiles())
 }

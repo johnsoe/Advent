@@ -20,24 +20,27 @@ class DayTwelve: Day() {
     fun calcCycle(): Long {
         val moons = mutableSetOf<Moon>()
         getInputByLine().forEach { moons.add(createMoon(it))}
-        var steps = 0L
-        while(!checkVelocitiesZero(moons) || steps == 0L) {
+        var steps = 0
+        val dimenCycle = longArrayOf(0, 0, 0)
+        while(!checkVelocitiesZero(moons, dimenCycle, steps) || steps == 0) {
             moons.forEach { applyGravity(it, moons) }
             moons.forEach { applyVelocity(it) }
             steps++
-            if (steps % 1000000 == 0L) {
-                println("${steps / 1000000} million")
-            }
         }
-        return steps * 2
+        return lcm(lcm(dimenCycle[0], dimenCycle[1]), dimenCycle[2]) * 2
     }
 
-    private fun checkVelocitiesZero(moons: MutableSet<Moon>): Boolean {
-        return moons.all { moon ->
-            moon.velocity.all {
-                it == 0
+    fun gcd(a: Long, b: Long): Long = if (b == 0L) a else gcd(b, a % b)
+    fun lcm(a: Long, b: Long): Long = a / gcd(a, b) * b
+
+    private fun checkVelocitiesZero(moons: MutableSet<Moon>, dimenCycles: LongArray, steps: Int): Boolean {
+        dimenCycles.forEachIndexed { index, i ->
+            if (i == 0L && moons.all { it.velocity[index] == 0 }) {
+                dimenCycles[index] = steps.toLong()
             }
         }
+
+        return dimenCycles.all { it != 0L }
     }
 
     private fun createMoon(init: String): Moon {
