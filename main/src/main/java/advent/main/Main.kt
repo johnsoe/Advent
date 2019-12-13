@@ -28,6 +28,9 @@ fun main(args: Array<String>) {
 
 //    println(DayNine().checkComputer())
 
+//    println(DayTen().partOne())
+//    println(DayTen().partTwo())
+
 //    println(DayTwelve().calcTotalEnergy(1000))
 //    println(DayTwelve().calcCycle())
 
