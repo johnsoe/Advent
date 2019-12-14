@@ -1,5 +1,6 @@
 package advent.main
 
+import DayEleven
 import advent.tasks.*
 
 fun main(args: Array<String>) {
@@ -31,8 +32,10 @@ fun main(args: Array<String>) {
 //    println(DayTen().partOne())
 //    println(DayTen().partTwo())
 
+    println(DayEleven().traverse())
+
 //    println(DayTwelve().calcTotalEnergy(1000))
-    println(DayTwelve().calcCycle())
+//    println(DayTwelve().calcCycle())
 
 //    println(DayThirteen().countBlockTiles())
 }

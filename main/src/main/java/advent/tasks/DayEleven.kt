@@ -1,3 +1,6 @@
+import advent.helper.Day
+import advent.helper.LongCodeComputer
+import java.awt.Point
 
 class DayEleven: Day() {
 
@@ -8,17 +11,38 @@ class DayEleven: Day() {
         val comp = LongCodeComputer(input)
 
         var position = Point(0, 0)
-        var direction = Direction.Up
+        var direction : Direction = Direction.Up
         val paintedPositions = mutableMapOf<Point, Int>()
+        var step = 0
 
-        while (comp.lastOpcode != Opcode.Terminate) {
-            val nextInput = paintedPositions[position] ?: 0
-            val outputs = comp.parseAllInstructions(listOf(nextInput)).map { it.toInt() }
+        while (comp.lastOpcode != LongCodeComputer.Opcode.Terminate) {
+            val nextInput = paintedPositions[position] ?: if (step == 0) 1 else 0
+            val outputs = comp.parseAllInstructions(listOf(nextInput.toLong()), 2).map { it.toInt() }
             if (outputs.size == 2) {
-                paintedPositions[position] = outputs[0]
+                paintedPositions[Point(position.x, position.y)] = outputs[0]
                 direction = getNextDirection(outputs[1], direction)
-                step(position, direction)
+                takeStep(position, direction)
             }
+            step++
+        }
+        actuallyPaint(paintedPositions)
+        return paintedPositions.size
+    }
+
+    private fun actuallyPaint(all: MutableMap<Point, Int>) {
+        val xMin = all.minBy { it.key.x }!!.key.x
+        val yMin = all.minBy { it.key.y }!!.key.y
+        val yMax = all.maxBy { it.key.y }!!.key.y
+        val xMax = all.maxBy { it.key.x }!!.key.x
+
+        for (i in yMax downTo yMin) {
+            for (j in xMin..xMax) {
+                val color = all[Point(j, i)]
+                color?.let {
+                    print(if (it == 0) "." else "#")
+                } ?: print(".")
+            }
+            println()
         }
     }
 
@@ -39,11 +63,11 @@ class DayEleven: Day() {
         }
     }
 
-    private fun getRightDirection(prev: Direction) {
-        getLeftDirection(getLeftDirection(getLeftDirection(prev)))
+    private fun getRightDirection(prev: Direction): Direction {
+        return getLeftDirection(getLeftDirection(getLeftDirection(prev)))
     }
 
-    private fun step(current: Point, facing: Direction) {
+    private fun takeStep(current: Point, facing: Direction) {
         when (facing) {
             Direction.Up -> current.y++
             Direction.Down -> current.y--
@@ -52,7 +76,7 @@ class DayEleven: Day() {
         }
     }
 
-    sealed class Direction(left: Direction, right: Direction) {
+    sealed class Direction {
         object Up: Direction()
         object Down: Direction()
         object Left: Direction()

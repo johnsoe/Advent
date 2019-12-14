@@ -58,9 +58,9 @@ class DaySeven: Day() {
         var result = 0L
         while (true) {
             result = if (i < size) {
-                comps[i % size].parseAllInstructions(listOf(phases[i].toLong(), result), true)[0]
+                comps[i % size].parseAllInstructions(listOf(phases[i].toLong(), result), 1)[0]
             } else {
-                val output = comps[i % size].parseAllInstructions(listOf(result), true)
+                val output = comps[i % size].parseAllInstructions(listOf(result), 1)
                 if (output.isNotEmpty()) {
                     output[0]
                 } else {

@@ -24,8 +24,7 @@ class LongCodeComputer constructor(
             val op = parseNextInstruction(fullIndex, output, inputs)
             fullIndex = op.second
             lastOpcode = op.first
-        } while (op.first != Opcode.Terminate && (pauseOnOutput == 0 || output.size != pauseOnOutputs))
-        println(output)
+        } while (op.first != Opcode.Terminate && (pauseOnOutputs == 0 || output.size != pauseOnOutputs))
         return output
     }
 
