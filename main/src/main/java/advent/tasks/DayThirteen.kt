@@ -9,7 +9,7 @@ class DayThirteen: Day() {
     override fun getFileName() = "thirteen.txt"
 
     fun countBlockTiles(): Int{
-        val input = getInputBySeparator(",").map { it.toLong() }.toMutableList()
+        val input = getInputBySeparator().map { it.toLong() }.toMutableList()
         val outputs = LongCodeComputer(input).parseAllInstructions(listOf()).map { it.toInt() }
 
         val state = mutableMapOf<Point, Tile>()

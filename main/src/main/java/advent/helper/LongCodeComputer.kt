@@ -17,14 +17,14 @@ class LongCodeComputer constructor(
         }
     }
 
-    fun parseAllInstructions(inputs: List<Long>, pauseOnOutput: Boolean = false): List<Long> {
+    fun parseAllInstructions(inputs: List<Long>, pauseOnOutputs: Int = 0): List<Long> {
         val output = mutableListOf<Long>()
         inputIndex = 0
         do {
             val op = parseNextInstruction(fullIndex, output, inputs)
             fullIndex = op.second
             lastOpcode = op.first
-        } while (op.first != Opcode.Terminate && (!pauseOnOutput || op.first != Opcode.Write))
+        } while (op.first != Opcode.Terminate && (pauseOnOutput == 0 || output.size != pauseOnOutputs))
         println(output)
         return output
     }
