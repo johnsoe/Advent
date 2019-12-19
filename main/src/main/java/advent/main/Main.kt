@@ -1,7 +1,6 @@
 package advent.main
 
-import DayEleven
-import advent.tasks.*
+import DayFifteen
 
 fun main(args: Array<String>) {
 //    val dayOne = DayOne()
@@ -38,6 +37,9 @@ fun main(args: Array<String>) {
 //    println(DayTwelve().calcCycle())
 
 //    println(DayThirteen().countBlockTiles())
+
+    println(DayFifteen().printShortestPath())
+    println(DayFifteen().floodFill())
 //    println(DaySeventeen().calculateAlignmentParameters())
-    println(DaySeventeen().traverseScaffolding())
+//    println(DaySeventeen().traverseScaffolding())
 }
