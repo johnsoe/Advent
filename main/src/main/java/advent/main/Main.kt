@@ -32,10 +32,12 @@ fun main(args: Array<String>) {
 //    println(DayTen().partOne())
 //    println(DayTen().partTwo())
 
-    println(DayEleven().traverse())
+//    println(DayEleven().traverse())
 
 //    println(DayTwelve().calcTotalEnergy(1000))
 //    println(DayTwelve().calcCycle())
 
 //    println(DayThirteen().countBlockTiles())
+//    println(DaySeventeen().calculateAlignmentParameters())
+    println(DaySeventeen().traverseScaffolding())
 }

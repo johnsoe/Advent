@@ -17,7 +17,7 @@ class LongCodeComputer constructor(
         }
     }
 
-    fun parseAllInstructions(inputs: List<Long>, pauseOnOutputs: Int = 0): List<Long> {
+    fun parseAllInstructions(inputs: List<Long> = listOf(), pauseOnOutputs: Int = 0): List<Long> {
         val output = mutableListOf<Long>()
         inputIndex = 0
         do {
@@ -52,7 +52,9 @@ class LongCodeComputer constructor(
                 update(1, inputs[inputIndex])
                 inputIndex++
             }
-            Opcode.Write -> output.add(nextLookUp(1))
+            Opcode.Write -> {
+                output.add(nextLookUp(1))
+            }
             Opcode.JumpIfTrue -> {
                 if (nextLookUp(1) != 0L) {
                     return Pair(opcode, nextLookUp(2))
