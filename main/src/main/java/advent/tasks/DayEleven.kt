@@ -1,5 +1,6 @@
 import advent.helper.Day
 import advent.helper.LongCodeComputer
+import advent.helper.Util.Direction
 import java.awt.Point
 
 class DayEleven: Day() {
@@ -11,7 +12,7 @@ class DayEleven: Day() {
         val comp = LongCodeComputer(input)
 
         var position = Point(0, 0)
-        var direction : Direction = Direction.Up
+        var direction : Direction = Direction.North
         val paintedPositions = mutableMapOf<Point, Int>()
         var step = 0
 
@@ -56,10 +57,10 @@ class DayEleven: Day() {
 
     private fun getLeftDirection(prev: Direction): Direction {
         return when (prev) {
-            Direction.Up -> Direction.Left
-            Direction.Left -> Direction.Down
-            Direction.Down -> Direction.Right
-            Direction.Right -> Direction.Up
+            Direction.North -> Direction.West
+            Direction.West -> Direction.South
+            Direction.South -> Direction.East
+            Direction.East -> Direction.North
         }
     }
 
@@ -69,17 +70,10 @@ class DayEleven: Day() {
 
     private fun takeStep(current: Point, facing: Direction) {
         when (facing) {
-            Direction.Up -> current.y++
-            Direction.Down -> current.y--
-            Direction.Left -> current.x--
-            Direction.Right -> current.x++
+            Direction.North -> current.y++
+            Direction.South -> current.y--
+            Direction.West -> current.x--
+            Direction.East -> current.x++
         }
-    }
-
-    sealed class Direction {
-        object Up: Direction()
-        object Down: Direction()
-        object Left: Direction()
-        object Right: Direction()
     }
 }

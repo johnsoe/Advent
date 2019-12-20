@@ -2,6 +2,7 @@ package advent.main
 
 import DayFifteen
 import advent.tasks.DayNineteen
+import advent.tasks.DayTwenty
 
 fun main(args: Array<String>) {
 //    val dayOne = DayOne()
@@ -45,6 +46,8 @@ fun main(args: Array<String>) {
 //    println(DaySeventeen().calculateAlignmentParameters())
 //    println(DaySeventeen().traverseScaffolding())
 
-    println(DayNineteen().tractorBeamArea(50))
-    println(DayNineteen().findShipArea(100))
+//    println(DayNineteen().tractorBeamArea(50))
+//    println(DayNineteen().findShipArea(100))
+
+    println(DayTwenty().traverseSteps())
 }

@@ -1,13 +1,14 @@
 import advent.helper.Day
 import advent.helper.LongCodeComputer
+import advent.helper.Util
+import advent.helper.Util.Companion.getNextPoint
+import advent.helper.Util.Companion.getOppositeDirection
 import java.awt.Point
 import java.lang.Integer.max
 
 class DayFifteen : Day() {
 
     override fun getFileName() = "fifteen.txt"
-
-    private val directions = listOf(Direction.North, Direction.East, Direction.South, Direction.West)
 
     fun printShortestPath() {
         val comp = LongCodeComputer(getInputBySeparator().map { it.toLong() }.toMutableList())
@@ -34,8 +35,8 @@ class DayFifteen : Day() {
         else {
             maze[cur] = DisplayType.OxygenSystem
             var maxStep = -1
-            for (direction in directions) {
-                maxStep = max(floodFill(maze, getPoint(cur, direction), steps + 1), maxStep)
+            for (direction in Util.directions) {
+                maxStep = max(floodFill(maze, getNextPoint(cur, direction), steps + 1), maxStep)
             }
             maxStep
         }
@@ -46,8 +47,8 @@ class DayFifteen : Day() {
         next?.let {
             if (it == DisplayType.OxygenSystem) println(steps)
             else if (it !=  DisplayType.Wall) {
-                for (direction in directions) {
-                    val nextPoint = getPoint(cur, direction)
+                for (direction in Util.directions) {
+                    val nextPoint = getNextPoint(cur, direction)
                     if (found.contains(nextPoint)) {
                         if (shortestPath(found, nextPoint, steps + 1)) return true
                     }
@@ -58,8 +59,8 @@ class DayFifteen : Day() {
     }
 
     private fun createMaze(found: MutableMap<Point, DisplayType>, comp: LongCodeComputer, cur: Point) {
-        for (direction in directions) {
-            val nextPoint = getPoint(cur, direction)
+        for (direction in Util.directions) {
+            val nextPoint = getNextPoint(cur, direction)
             if (!found.contains(nextPoint)) {
                 when (comp.parseAllInstructions(listOf(direction.d.toLong()), 1)[0].toInt()) {
                     0 -> found[nextPoint] = DisplayType.Wall
@@ -93,33 +94,10 @@ class DayFifteen : Day() {
         }
     }
 
-    private fun getPoint(cur: Point, dir: Direction): Point {
-        return when (dir) {
-            Direction.North -> Point(cur.x, cur.y + 1)
-            Direction.South -> Point(cur.x, cur.y - 1)
-            Direction.East -> Point(cur.x + 1, cur.y)
-            Direction.West -> Point(cur.x - 1, cur.y)
-        }
-    }
-
-    private fun getNextDirection(cur: Direction) = directionHelper(cur, 1)
-    private fun getOppositeDirection(cur: Direction) = directionHelper(cur, 2)
-
-    private fun directionHelper(cur: Direction, offset: Int): Direction {
-        return directions[(directions.indexOf(cur) + offset) % directions.size]
-    }
-
     private sealed class DisplayType(val c: Char) {
         object Wall: DisplayType('#')
         object Empty: DisplayType('.')
         object OxygenSystem: DisplayType('O')
         object Start: DisplayType('X')
-    }
-
-    private sealed class Direction(val d: Int) {
-        object North: Direction(1)
-        object South: Direction(2)
-        object West: Direction(3)
-        object East: Direction(4)
     }
 }
