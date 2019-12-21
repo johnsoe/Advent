@@ -2,6 +2,7 @@ package advent.tasks
 
 import advent.helper.Day
 import advent.helper.LongCodeComputer
+import advent.helper.Util.Companion.toAscii
 
 class DaySeventeen : Day() {
     override fun getFileName(): String {
@@ -47,11 +48,5 @@ class DaySeventeen : Day() {
         val comp = LongCodeComputer(getInputBySeparator().map { it.toLong() }.toMutableList().apply { set(0, 2) })
         val outputs = comp.parseAllInstructions(combined)
         println(outputs.last())
-    }
-
-    fun toAscii(input: String): List<Long> {
-        return input.map { it.toLong() }.toMutableList().apply {
-            add(10L)
-        }
     }
 }

@@ -30,5 +30,11 @@ class Util {
                 Direction.West -> Point(cur.x - 1, cur.y)
             }
         }
+
+        fun toAscii(input: String): List<Long> {
+            return input.map { it.toLong() }.toMutableList().apply {
+                add(10L)
+            }
+        }
     }
 }
