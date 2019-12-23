@@ -28,7 +28,12 @@ class LongCodeComputer constructor(
         return output
     }
 
-    private fun parseNextInstruction(index: Long, output: MutableList<Long>, inputs: List<Long>): Pair<Opcode, Long> {
+    fun parseWithCallback(input: Int, inputCallback: (Int) -> Long, out: MutableList<Long>) {
+        val op = parseNextInstruction(fullIndex, out, listOf(input.toLong()), inputCallback)
+        fullIndex = op.second
+    }
+
+    private fun parseNextInstruction(index: Long, output: MutableList<Long>, inputs: List<Long>, inputCallback: ((Int) -> Long)? = null): Pair<Opcode, Long> {
         val instruction = dataMap[index]!!
         val opcode = getOpCode(instruction)
         val params = getOpParams(instruction, opcode)
@@ -49,7 +54,12 @@ class LongCodeComputer constructor(
                 update(3, result)
             }
             Opcode.Read -> {
-                update(1, inputs[inputIndex])
+                inputCallback?.let {
+                    val result = inputCallback.invoke(inputs[0].toInt())
+                    update(1, result)
+                } ?: run {
+                    update(1, inputs[inputIndex])
+                }
                 inputIndex++
             }
             Opcode.Write -> {
