@@ -1,6 +1,7 @@
 package advent.main
 
 import advent.tasks.DayTwentyOne
+import advent.tasks.DayTwentyTwo
 
 fun main(args: Array<String>) {
 //    val dayOne = DayOne()
@@ -48,6 +49,10 @@ fun main(args: Array<String>) {
 //    println(DayNineteen().findShipArea(100))
 
 //    println(DayTwenty().traverseSteps())
-    println(DayTwentyOne().walkHull())
-    println(DayTwentyOne().runHull())
+//    println(DayTwentyOne().walkHull())
+//    println(DayTwentyOne().runHull())
+
+    println(DayTwentyTwo().shuffleDeck(10007))
+//    println(DayTwentyTwo().test())
+//    println(DayTwentyTwo().excessiveShuffle(119315717514047, 101741582076661))
 }
