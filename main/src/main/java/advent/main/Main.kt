@@ -1,5 +1,6 @@
 package advent.main
 
+import advent.tasks.DayTwentyFour
 import advent.tasks.DayTwentyOne
 import advent.tasks.DayTwentyThree
 import advent.tasks.DayTwentyTwo
@@ -57,5 +58,7 @@ fun main(args: Array<String>) {
 //    println(DayTwentyTwo().test())
 //    println(DayTwentyTwo().excessiveShuffle(119315717514047, 101741582076661))
 
-    println(DayTwentyThree().startNetwork())
+//    println(DayTwentyThree().startNetwork())
+//    println(DayTwentyFour().smallVersion())
+    println(DayTwentyFour().largeVersion(200))
 }
