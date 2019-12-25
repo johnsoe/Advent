@@ -36,5 +36,10 @@ class Util {
                 add(10L)
             }
         }
+
+        fun fromAscii(input: List<Long>): String {
+            val str = input.map { it.toChar() }.toString()
+            return str.replace(", ", "")
+        }
     }
 }

@@ -1,9 +1,6 @@
 package advent.main
 
-import advent.tasks.DayTwentyFour
-import advent.tasks.DayTwentyOne
-import advent.tasks.DayTwentyThree
-import advent.tasks.DayTwentyTwo
+import advent.tasks.*
 
 fun main(args: Array<String>) {
 //    val dayOne = DayOne()
@@ -60,5 +57,7 @@ fun main(args: Array<String>) {
 
 //    println(DayTwentyThree().startNetwork())
 //    println(DayTwentyFour().smallVersion())
-    println(DayTwentyFour().largeVersion(200))
+//    println(DayTwentyFour().largeVersion(200))
+
+    println(DayTwentyFive().findShipPassword())
 }

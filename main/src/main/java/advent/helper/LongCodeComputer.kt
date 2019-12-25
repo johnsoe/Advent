@@ -1,6 +1,6 @@
 package advent.helper
 
-class LongCodeComputer constructor(
+open class LongCodeComputer constructor(
     instructions: MutableList<Long>
 ) {
 
@@ -15,6 +15,17 @@ class LongCodeComputer constructor(
         instructions.forEachIndexed { index, i ->
             dataMap[index.toLong()] = i
         }
+    }
+
+    open fun parseListInstructions(inputs: List<Long> = listOf(), pauseOnOutputs: List<Long> = listOf()): List<Long> {
+        val output = mutableListOf<Long>()
+        inputIndex = 0
+        do {
+            val op = parseNextInstruction(fullIndex, output, inputs)
+            fullIndex = op.second
+            lastOpcode = op.first
+        } while (op.first != Opcode.Terminate && (pauseOnOutputs.isEmpty() || !output.containsAll(pauseOnOutputs)))
+        return output
     }
 
     fun parseAllInstructions(inputs: List<Long> = listOf(), pauseOnOutputs: Int = 0): List<Long> {
