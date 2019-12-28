@@ -38,6 +38,8 @@ fun main(args: Array<String>) {
 
 //    println(DayThirteen().countBlockTiles())
 
+    println(DayFourteen().calcOneFuel())
+
 //    println(DayFifteen().printShortestPath())
 //    println(DayFifteen().floodFill())
 
@@ -59,5 +61,5 @@ fun main(args: Array<String>) {
 //    println(DayTwentyFour().smallVersion())
 //    println(DayTwentyFour().largeVersion(200))
 
-    println(DayTwentyFive().findShipPassword())
+//    println(DayTwentyFive().findShipPassword())
 }
