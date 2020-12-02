@@ -1,4 +1,4 @@
-package advent.tasks
+package advent.tasks.nineteen
 
 class DayFour {
 

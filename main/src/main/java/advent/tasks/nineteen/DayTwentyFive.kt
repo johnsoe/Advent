@@ -1,8 +1,7 @@
-package advent.tasks
+package advent.tasks.nineteen
 
 import advent.helper.AsciiComputer
 import advent.helper.Day
-import advent.helper.LongCodeComputer
 
 class DayTwentyFive: Day() {
     override fun getFileName(): String {

@@ -9,4 +9,5 @@
 /app
 /gradle
 gradle*
+/main/build
 

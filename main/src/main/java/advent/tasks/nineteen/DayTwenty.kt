@@ -1,4 +1,4 @@
-package advent.tasks
+package advent.tasks.nineteen
 
 import advent.helper.Day
 import advent.helper.Util
