@@ -10,29 +10,21 @@ class DayFour: Day() {
     }
 
     private fun createPassportList(): List<Passport> {
-        val passportList = mutableListOf<Passport>()
-        var currentPassport = Passport()
-        getInputByLine().forEach {
-            if (it.isEmpty()) {
-                passportList.add(currentPassport)
-                currentPassport = Passport()
-            } else {
-                updatePassportFromInput(currentPassport, it)
-            }
+        return getInputByChunk().map {
+            updatePassportFromInput(Passport(), it)
         }
-        passportList.add(currentPassport)
-        return passportList
     }
 
     fun findRestrictedPassportCount(): Int {
         return createPassportList().count { it.isValidWithRestrictions() }
     }
 
-    private fun updatePassportFromInput(passport: Passport, input: String) {
+    private fun updatePassportFromInput(passport: Passport, input: String): Passport {
         input.split(" ").forEach {
             val pair = it.split(":")
             passport.setParam(pair.first(), pair.last())
         }
+        return passport
     }
 
     private class Passport {

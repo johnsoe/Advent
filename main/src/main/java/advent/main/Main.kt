@@ -1,7 +1,6 @@
 package advent.main
 
-import advent.tasks.twenty.DayFive
-import advent.tasks.twenty.DaySix
+import advent.tasks.twenty.DaySeven
 
 fun main(args: Array<String>) {
 //    val dayOne = DayOne()
@@ -24,7 +23,11 @@ fun main(args: Array<String>) {
 //    println(dayFive.getMaxSeatId())
 //    println(dayFive.getMySeatId())
 
-    val daySix = DaySix()
-    println(daySix.first())
-    println(daySix.second())
+//    val daySix = DaySix()
+//    println(daySix.getUniqueResponseCount())
+//    println(daySix.getSharedResponseCount()) // 3319 got a weird error....Might be a solution to a different problem.
+
+    val daySeven = DaySeven()
+    println(daySeven.getShinyBagPermutations())
+    println(daySeven.getCountOfInternalBags())
 }

@@ -11,5 +11,13 @@ abstract class Day() {
 
     fun getInputByLine(): List<String> = File("$INPUT_BASE${getFileName()}").readLines()
     fun getInputBySeparator(delimiter: String = ","): List<String> = getInputByLine().flatMap { it.split(delimiter) }
-
+    fun getInputByChunk(): List<String> =
+        getInputByLine().fold(mutableListOf<MutableList<String>>()) { acc, item ->
+            if (item.isEmpty()) {
+                acc.add(mutableListOf())
+            } else {
+                acc.lastOrNull()?.add(item) ?: acc.add(mutableListOf(item))
+            }
+            acc
+        }.map { it.joinToString(separator = " ") }
 }
