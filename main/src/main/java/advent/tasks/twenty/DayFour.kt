@@ -11,7 +11,7 @@ class DayFour: Day() {
 
     private fun createPassportList(): List<Passport> {
         return getInputByChunk().map {
-            updatePassportFromInput(Passport(), it)
+            getPassportFromInput(it)
         }
     }
 
@@ -19,7 +19,8 @@ class DayFour: Day() {
         return createPassportList().count { it.isValidWithRestrictions() }
     }
 
-    private fun updatePassportFromInput(passport: Passport, input: String): Passport {
+    private fun getPassportFromInput(input: String): Passport {
+        val passport = Passport()
         input.split(" ").forEach {
             val pair = it.split(":")
             passport.setParam(pair.first(), pair.last())
