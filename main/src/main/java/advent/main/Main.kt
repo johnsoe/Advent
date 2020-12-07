@@ -1,6 +1,7 @@
 package advent.main
 
 import advent.tasks.twenty.DayFive
+import advent.tasks.twenty.DaySix
 
 fun main(args: Array<String>) {
 //    val dayOne = DayOne()
@@ -19,7 +20,11 @@ fun main(args: Array<String>) {
 //    println(dayFour.findValidPassportCount())
 //    println(dayFour.findRestrictedPassportCount())
 
-    val dayFive = DayFive()
-    println(dayFive.getMaxSeatId())
-    println(dayFive.getMySeatId())
+//    val dayFive = DayFive()
+//    println(dayFive.getMaxSeatId())
+//    println(dayFive.getMySeatId())
+
+    val daySix = DaySix()
+    println(daySix.first())
+    println(daySix.second())
 }
