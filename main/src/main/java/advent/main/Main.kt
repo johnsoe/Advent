@@ -1,6 +1,6 @@
 package advent.main
 
-import advent.tasks.twenty.DayEight
+import advent.tasks.twenty.DayNine
 
 fun main(args: Array<String>) {
 //    val dayOne = DayOne()
@@ -31,7 +31,11 @@ fun main(args: Array<String>) {
 //    println(daySeven.getShinyBagPermutations())
 //    println(daySeven.getCountOfInternalBags())
 
-    val dayEight = DayEight()
-    println(dayEight.accumulateWithInfiniteLoop())
-    println(dayEight.accumulateWithoutInfiniteLoop())
+//    val dayEight = DayEight()
+//    println(dayEight.accumulateWithInfiniteLoop())
+//    println(dayEight.accumulateWithoutInfiniteLoop())
+
+    val dayNine = DayNine()
+    println(dayNine.findFirstInvalidInput())
+    println(dayNine.findContiguousSum())
 }
