@@ -41,5 +41,11 @@ class Util {
             val str = input.map { it.toChar() }.toString()
             return str.replace(", ", "")
         }
+
+        fun getSummedPair(nums: Set<Long>, target: Long): Pair<Long, Long>? {
+            return nums.firstOrNull { nums.contains(target - it) }?.let {
+                it to (target - it)
+            }
+        }
     }
 }

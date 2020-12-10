@@ -1,6 +1,6 @@
 package advent.main
 
-import advent.tasks.twenty.DayNine
+import advent.tasks.twenty.DayTen
 
 fun main(args: Array<String>) {
 //    val dayOne = DayOne()
@@ -35,7 +35,11 @@ fun main(args: Array<String>) {
 //    println(dayEight.accumulateWithInfiniteLoop())
 //    println(dayEight.accumulateWithoutInfiniteLoop())
 
-    val dayNine = DayNine()
-    println(dayNine.findFirstInvalidInput())
-    println(dayNine.findContiguousSum())
+//    val dayNine = DayNine()
+//    println(dayNine.findFirstInvalidInput())
+//    println(dayNine.findContiguousSum())
+
+    val dayTen = DayTen()
+    println(dayTen.getJoltageDifference())
+    println(dayTen.getJoltagePermutations())
 }

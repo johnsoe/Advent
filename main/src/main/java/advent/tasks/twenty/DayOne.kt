@@ -1,6 +1,7 @@
 package advent.tasks.twenty
 
 import advent.helper.Day
+import advent.helper.Util
 
 class DayOne : Day() {
 
