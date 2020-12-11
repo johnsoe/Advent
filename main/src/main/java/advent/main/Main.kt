@@ -1,5 +1,6 @@
 package advent.main
 
+import advent.tasks.twenty.DayEleven
 import advent.tasks.twenty.DayTen
 
 fun main(args: Array<String>) {
@@ -39,7 +40,11 @@ fun main(args: Array<String>) {
 //    println(dayNine.findFirstInvalidInput())
 //    println(dayNine.findContiguousSum())
 
-    val dayTen = DayTen()
-    println(dayTen.getJoltageDifference())
-    println(dayTen.getJoltagePermutations())
+//    val dayTen = DayTen()
+//    println(dayTen.getJoltageDifference())
+//    println(dayTen.getJoltagePermutations())
+
+    val dayEleven = DayEleven()
+    println(dayEleven.getStableCount( useVisibilitySeating = false))
+    println(dayEleven.getStableCount( useVisibilitySeating = true))
 }
