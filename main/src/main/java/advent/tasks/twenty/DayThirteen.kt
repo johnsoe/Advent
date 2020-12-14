@@ -38,30 +38,6 @@ class DayThirteen: Day() {
             }
             curIndex += factor
         }
-//        val lcm = busTimes.map { it.first }.reduce { acc, l ->
-//            acc * l / gcd(acc, l)
-//        }
-//        val lcm = busTimes.maxBy { it.first }!!
-//        var curIndex = lcm.first - lcm.second
-//        var count = 0
-//        while (true) {
-//            if (busTimes.all {
-//                    (curIndex + it.second) % it.first == 0L
-//            }) {
-//                return curIndex
-//            }
-//            curIndex += lcm.first
-//        }
-
         return 0L
     }
-
-//    fun gcd(a: Long, b: Long): Long {
-//        var gcd = min(a, b)
-//        while(a % gcd != 0L || b % gcd != 0L) {
-//            gcd--
-//        }
-//        return gcd
-//    }
-
 }
