@@ -17,17 +17,28 @@ class Util {
 
         fun getNextDirection(cur: Direction) = directionHelper(cur, 1)
         fun getOppositeDirection(cur: Direction) = directionHelper(cur, 2)
+        fun getClockwiseDirection(cur: Direction, rotation: Int) = directionHelper(cur, rotation)
+        fun getCounterClockwiseDirection(cur: Direction, rotation: Int) = directionHelper(cur, (-rotation % directions.size + directions.size))
 
         private fun directionHelper(cur: Direction, offset: Int): Direction {
             return directions[(directions.indexOf(cur) + offset) % directions.size]
         }
 
-        fun getNextPoint(cur: Point, dir: Direction): Point {
+        fun Point.translateByDirection(dir: Direction, amount: Int = 1) {
+            when (dir) {
+                Direction.North -> this.translate(0, amount)
+                Direction.South -> this.translate(0, -amount)
+                Direction.East -> this.translate(amount, 0)
+                Direction.West -> this.translate(-amount, 0)
+            }
+        }
+
+        fun getNextPoint(cur: Point, dir: Direction, offset: Int = 1): Point {
             return when (dir) {
-                Direction.North -> Point(cur.x, cur.y + 1)
-                Direction.South -> Point(cur.x, cur.y - 1)
-                Direction.East -> Point(cur.x + 1, cur.y)
-                Direction.West -> Point(cur.x - 1, cur.y)
+                Direction.North -> Point(cur.x, cur.y + offset)
+                Direction.South -> Point(cur.x, cur.y - offset)
+                Direction.East -> Point(cur.x + offset, cur.y)
+                Direction.West -> Point(cur.x - offset, cur.y)
             }
         }
 
