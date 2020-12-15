@@ -55,7 +55,11 @@ fun main(args: Array<String>) {
 //    println(dayThirteen.getSoonestBusId())
 //    println(dayThirteen.consecutiveBusIdTimestamps())
 
-    val dayFourteen = DayFourteen()
-  //  println(dayFourteen.getSumOfAddressData())
-    println(dayFourteen.getSumWithAddressBitmask())
+//    val dayFourteen = DayFourteen()
+//    println(dayFourteen.getSumOfAddressData())
+//    println(dayFourteen.getSumWithAddressBitmask())
+
+    val dayFifteen = DayFifteen()
+    println(dayFifteen.getNthDigitFromGameSequence(2020))
+    println(dayFifteen.getNthDigitFromGameSequence(30000000))
 }
