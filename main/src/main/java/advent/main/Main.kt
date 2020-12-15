@@ -1,9 +1,6 @@
 package advent.main
 
-import advent.tasks.twenty.DayEleven
-import advent.tasks.twenty.DayTen
-import advent.tasks.twenty.DayThirteen
-import advent.tasks.twenty.DayTwelve
+import advent.tasks.twenty.*
 
 fun main(args: Array<String>) {
 //    val dayOne = DayOne()
@@ -54,7 +51,11 @@ fun main(args: Array<String>) {
 //    println(dayTwelve.getManhattanDistance())
 //    println(dayTwelve.getManhattanDistanceWithWaypoint())
 
-    val dayThirteen = DayThirteen()
-    println(dayThirteen.getSoonestBusId())
-    println(dayThirteen.consecutiveBusIdTimestamps())
+//    val dayThirteen = DayThirteen()
+//    println(dayThirteen.getSoonestBusId())
+//    println(dayThirteen.consecutiveBusIdTimestamps())
+
+    val dayFourteen = DayFourteen()
+  //  println(dayFourteen.getSumOfAddressData())
+    println(dayFourteen.getSumWithAddressBitmask())
 }
