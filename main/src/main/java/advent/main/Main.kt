@@ -59,7 +59,11 @@ fun main(args: Array<String>) {
 //    println(dayFourteen.getSumOfAddressData())
 //    println(dayFourteen.getSumWithAddressBitmask())
 
-    val dayFifteen = DayFifteen()
-    println(dayFifteen.getNthDigitFromGameSequence(2020))
-    println(dayFifteen.getNthDigitFromGameSequence(30000000))
+//    val dayFifteen = DayFifteen()
+//    println(dayFifteen.getNthDigitFromGameSequence(2020))
+//    println(dayFifteen.getNthDigitFromGameSequence(30000000))
+
+    val daySixteen = DaySixteen()
+    println(daySixteen.getScanningErrorRate())
+    println(daySixteen.getDepartureSum())
 }
