@@ -63,7 +63,11 @@ fun main(args: Array<String>) {
 //    println(dayFifteen.getNthDigitFromGameSequence(2020))
 //    println(dayFifteen.getNthDigitFromGameSequence(30000000))
 
-    val daySixteen = DaySixteen()
-    println(daySixteen.getScanningErrorRate())
-    println(daySixteen.getDepartureSum())
+//    val daySixteen = DaySixteen()
+//    println(daySixteen.getScanningErrorRate())
+//    println(daySixteen.getDepartureSum())
+
+    val daySeventeen = DaySeventeen()
+    println(daySeventeen.getActiveCountOnIteration(6))
+    println(daySeventeen.getHyperspaceCountOnIteration(6))
 }
