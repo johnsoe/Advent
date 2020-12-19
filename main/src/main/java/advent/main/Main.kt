@@ -66,8 +66,12 @@ fun main(args: Array<String>) {
 //    val daySixteen = DaySixteen()
 //    println(daySixteen.getScanningErrorRate())
 //    println(daySixteen.getDepartureSum())
+//
+//    val daySeventeen = DaySeventeen()
+//    println(daySeventeen.getActiveCountOnIteration(6))
+//    println(daySeventeen.getHyperspaceCountOnIteration(6))
 
-    val daySeventeen = DaySeventeen()
-    println(daySeventeen.getActiveCountOnIteration(6))
-    println(daySeventeen.getHyperspaceCountOnIteration(6))
+    val dayEighteen = DayEighteen()
+    println(dayEighteen.first())
+    println(dayEighteen.second())
 }
